@@ -17,10 +17,13 @@ class ViewController: UIViewController {
 
     menuButton.layer.cornerRadius = menuButton.bounds.height / 2
 
-    for _ in 1...4 {
-      radialLayoutView.addView(createView())
+    radialLayoutView.animate = false
+    
+    for _ in 0...4 {
+      radialLayoutView.addSubview(createView())
     }
-
+    
+    radialLayoutView.animate = true
   }
 
   @IBAction func menuButtonTapped(sender: AnyObject) {
@@ -29,11 +32,8 @@ class ViewController: UIViewController {
 
   @IBAction func addButtonTapped(sender: AnyObject) {
     let view = createView()
-    radialLayoutView.addView(view)
-  }
-  @IBAction func removeButtonTapped(sender: AnyObject) {
-
-    radialLayoutView.removeView2()
+    let randomIndex = Int.random(0...radialLayoutView.subviews.count)
+    radialLayoutView.insertSubview(view, atIndex: randomIndex)
   }
 }
 
@@ -46,9 +46,29 @@ extension ViewController {
 
     view.backgroundColor = UIColor.blackColor()
     view.layer.cornerRadius = view.bounds.width / 2
-    //    view.layer.shouldRasterize = true
+    
+    let tapRecognizer = UITapGestureRecognizer(target: self, action: "removeView:")
+    view.addGestureRecognizer(tapRecognizer)
 
     return view
+  }
+  
+  
+  func removeView(sender: UITapGestureRecognizer) {
+    
+    let view = sender.view!
+
+    view.removeFromSuperview()
+    
+    UIView.animateWithDuration(0.3, delay: 0, options: [.AllowUserInteraction], animations: {
+      
+      view.alpha = 0
+      view.transform = CGAffineTransformMakeScale(1.5, 1.5)
+      
+      }, completion: { finished in
+        
+        view.removeFromSuperview()
+    })
   }
 
 }
