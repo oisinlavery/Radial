@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -53,14 +54,22 @@
                                     <action selector="menuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ho-4P-K1Q"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="dO1-pK-3JH">
+                                <rect key="frame" x="18" y="46" width="564" height="31"/>
+                                <animations/>
+                            </slider>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dO1-pK-3JH" firstAttribute="top" secondItem="oCE-6h-Qro" secondAttribute="bottom" constant="8" id="04C-GD-QnO"/>
                             <constraint firstItem="JSJ-xp-6G3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GeO-7p-xDd"/>
                             <constraint firstItem="cwH-AC-GCH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="I0F-WK-QxP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dO1-pK-3JH" secondAttribute="trailing" id="KFM-N3-Owb"/>
                             <constraint firstItem="ZQ1-gn-qpa" firstAttribute="centerX" secondItem="JSJ-xp-6G3" secondAttribute="centerX" id="OK7-x2-JZg"/>
                             <constraint firstItem="JSJ-xp-6G3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P68-7x-rEH"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dO1-pK-3JH" secondAttribute="leading" id="Q2n-MT-AtU"/>
+                            <constraint firstItem="dO1-pK-3JH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rim-5K-2p9"/>
                             <constraint firstItem="ZQ1-gn-qpa" firstAttribute="centerY" secondItem="JSJ-xp-6G3" secondAttribute="centerY" id="c2E-wT-Mzx"/>
                             <constraint firstItem="cwH-AC-GCH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qIq-pS-ZFj"/>
                         </constraints>

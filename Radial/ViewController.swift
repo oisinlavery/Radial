@@ -47,29 +47,33 @@ extension ViewController {
     view.backgroundColor = UIColor.blackColor()
     view.layer.cornerRadius = view.bounds.width / 2
     
-    let tapRecognizer = UITapGestureRecognizer(target: self, action: "removeView:")
+    let tapRecognizer = UITapGestureRecognizer(target: self, action: "removeViewTapped:")
     view.addGestureRecognizer(tapRecognizer)
 
     return view
   }
-  
-  
-  func removeView(sender: UITapGestureRecognizer) {
-    
-    let view = sender.view!
 
-    view.removeFromSuperview()
-    
-    UIView.animateWithDuration(0.3, delay: 0, options: [.AllowUserInteraction], animations: {
-      
-      view.alpha = 0
-      view.transform = CGAffineTransformMakeScale(1.5, 1.5)
-      
-      }, completion: { finished in
-        
-        view.removeFromSuperview()
-    })
+  func removeViewTapped(sender: UITapGestureRecognizer) {
+    let view = sender.view!
+    radialLayoutView.removeView(view)
   }
+  
+  
+//  func removeView(view: UIView) {
+//
+//
+//    view.removeFromSuperview()
+//
+//    UIView.animateWithDuration(0.3, delay: 0, options: [.AllowUserInteraction], animations: {
+//      
+//      view.alpha = 0
+//      view.transform = CGAffineTransformMakeScale(1.5, 1.5)
+//      
+//      }, completion: { finished in
+//        
+//        view.removeFromSuperview()
+//    })
+//  }
 
 }
 
